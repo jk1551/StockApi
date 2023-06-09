@@ -101,6 +101,7 @@ ujson==5.7.0
 urllib3==2.0.3
 uvicorn==0.22.0
 uvloop==0.17.0
+vercel==0.2.1
 virtualenv==20.23.0
 virtualenv-clone==0.5.7
 watchfiles==0.19.0
