@@ -8,7 +8,6 @@ from starlette.responses import RedirectResponse
 from fastapi.security import HTTPBearer, OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-import api.crud
 import jwt
 from fastapi.responses import RedirectResponse, FileResponse
 from supabase import create_client, Client
@@ -136,17 +135,6 @@ def main():
 @app.get("/items/")
 async def read_items(token: Annotated[str, Depends(oauth2_scheme)]):
   return {"token": token}
-
-
-@app.get("/api/stocks")
-async def get_stocks():
-  stocks = crud.get_stock_data()
-  return stocks
-
-@app.get("/api/stocks/{ticker}")
-async def get_single_stock(ticker: str, token: Annotated[str, Depends(oauth2_scheme)]):
-  stock = await crud.get_single_stock(ticker);
-  return stock;
 
 @app.get("/html", response_class=HTMLResponse)
 async def read_items():
