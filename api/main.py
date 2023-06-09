@@ -8,7 +8,7 @@ from starlette.responses import RedirectResponse
 from fastapi.security import HTTPBearer, OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-import crud
+import api.crud
 import jwt
 from fastapi.responses import RedirectResponse, FileResponse
 from supabase import create_client, Client
